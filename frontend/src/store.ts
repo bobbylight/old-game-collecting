@@ -1,16 +1,22 @@
 import Vue from 'vue';
-import Vuex from 'vuex';
+import Vuex, { Store } from 'vuex';
+import { AppState } from '@/game-collector';
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
-  state: {
+const store: Store<AppState> = new Store({
 
-  },
-  mutations: {
+    state: {
+        filter: ''
+    },
 
-  },
-  actions: {
+    mutations: {
+        setFilter(state: AppState, filter: string) {
+            state.filter = filter;
+        }
+    },
 
-  },
+    actions: {}
 });
+
+export default store;

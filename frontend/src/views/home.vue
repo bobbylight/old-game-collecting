@@ -7,11 +7,11 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from '@/game-list.vue';
+import GameList from '@/game-list.vue';
 
 @Component({
   components: {
-    HelloWorld,
+    GameList,
   },
 })
 export default class Home extends Vue {}

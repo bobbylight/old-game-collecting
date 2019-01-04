@@ -34,6 +34,21 @@ DROP TABLE IF EXISTS "game_x_publisher" CASCADE;
 CREATE TABLE "game_x_publisher" (
   game_id INTEGER NOT NULL,
   publisher_id INTEGER NOT NULL,
-  CONSTRAINT game_x_publisher_pk PRIMARY KEY (game_id, publisher_id)
+  CONSTRAINT game_x_publisher_pk PRIMARY KEY (game_id, publisher_id),
+  CONSTRAINT game_x_publisher_game_fk FOREIGN KEY (game_id)
+    REFERENCES game (game_id) ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT game_x_publisher_publisher_fk FOREIGN KEY (publisher_id)
+    REFERENCES publisher (publisher_id) ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+WITH ( OIDS = FALSE );
+
+
+DROP TABLE IF EXISTS "user_x_game" CASCADE;
+CREATE TABLE "user_x_game" (
+  user_id INTEGER NOT NULL,
+  game_id INTEGER NOT NULL,
+  CONSTRAINT "user_x_game_pk" PRIMARY KEY (user_id, game_id),
+  CONSTRAINT user_x_game_game_fk FOREIGN KEY (game_id)
+    REFERENCES game (game_id) ON UPDATE NO ACTION ON DELETE NO ACTION
 )
 WITH ( OIDS = FALSE );

@@ -19,4 +19,5 @@ PGPASSWORD=${PASSWORD} psql -h ${HOST} -U ${USER} -v schema=${SCHEMA} -f ${DATA_
 PGPASSWORD=${PASSWORD} psql -h ${HOST} -U ${USER} -c "\copy ${SCHEMA}.game from '${DATA_DIR}/nes/games.csv' with csv header encoding 'utf-8'" ${DB}
 PGPASSWORD=${PASSWORD} psql -h ${HOST} -U ${USER} -c "\copy ${SCHEMA}.publisher from '${DATA_DIR}/nes/publishers.csv' with csv header encoding 'utf-8'" ${DB}
 PGPASSWORD=${PASSWORD} psql -h ${HOST} -U ${USER} -c "\copy ${SCHEMA}.game_x_publisher from '${DATA_DIR}/nes/game_x_publisher.csv' with csv header encoding 'utf-8'" ${DB}
+PGPASSWORD=${PASSWORD} psql -h ${HOST} -U ${USER} -c "\copy ${SCHEMA}.user_x_game from '${DATA_DIR}/nes/user_x_game.csv' with csv header encoding 'utf-8'" ${DB}
 PGPASSWORD=${PASSWORD} psql -h ${HOST} -U ${USER} -v schema=${SCHEMA} -f ${DATA_DIR}/ddl/postgres-fix-sequences.sql ${DB}

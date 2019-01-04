@@ -3,4 +3,5 @@
 node_modules/
 static/
 hello
+util/env.sh
 
